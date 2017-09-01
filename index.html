@@ -13,7 +13,54 @@
     </head>
     <body class="container-fluid">
       <h1>TIC TAC TOE</h1>
-  <div class="btn-group">
+      <aside>
+      <p id='message'></p>
+  <form id="sign-up">
+    <fieldset>
+      <legend>Sign up!</legend>
+      <input type="text" name="credentials[email]" placeholder="Enter Email">
+      <input type="text" name="credentials[password]" placeholder="Enter Password">
+      <input type="text" name="credentials[password-confirmation]" placeholder="Confirm Password">
+      <input type="submit" name="submit" value="Sign up!">
+    </fieldset>
+    <br>
+    <h2>OR</h2>
+    <br>
+  </form>
+  <form id="sign-in">
+    <fieldset>
+      <legend>Sign In!</legend>
+      <input type="text" name="credentials[email]" placeholder="Enter Email">
+      <input type="text" name="credentials[password]" placeholder="Enter Password">
+      <input type="submit" name="submit" value="Sign in!">
+    </fieldset>
+  </form>
+    <br>
+    <div class="btn-group">
+      <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        menu
+      </button>
+      <div class="dropdown-menu dropdown-menu-right">
+        <form id="change-password">
+          <fieldset>
+            <legend>Change Password</legend>
+            <input type="text" name="passwords[old]" placeholder="Enter Old Password">
+            <input type="text" name="passwords[new]" placeholder="Enter New Password">
+            <input type="submit" name="submit" value="Change Password!">
+          </fieldset>
+        </form>
+          <br>
+        <div class="dropdown-divider"></div>
+        <form id="sign-out">
+          <fieldset>
+            <legend>Sign Out</legend>
+            <input type="submit" name="submit" value="Sign Out!">
+          </fieldset>
+        </form>
+        <div class="dropdown-divider"></div>
+      </div>
+    </div>
+  <!-- <div class="btn-group">
     <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       menu
     </button>
@@ -27,10 +74,10 @@
     </div>
   </div>
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Sign In!
-</button>
+  Sign Up!
+</button> -->
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -40,15 +87,20 @@
           </button>
         </div>
         <div class="modal-body">
-          <form>
+          <form id="sign-up">
             <div class="form-group">
               <label for="exampleInputEmail1">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+              <input type="text" name="credentials[email]" placeholder="Enter Email">
+              <input type="text" name="credentials[password]" placeholder="Enter Password">
               <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              <input type="text" name="credentials[password]" placeholder="Enter Password">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="text" name="credentials[password-confirmation]" placeholder="Confirm Password">
             </div>
             <div class="form-check">
               <label class="form-check-label">
@@ -64,9 +116,10 @@
           <button type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
-    </div>
-  </div>
-    <p id='turn-message'>  </p>
+    </div> -->
+  </aside>
+   <h3 id='turn-message'> X's Turn </h3>
+        <h2 id='winner'></h2>
   <div class="grid" id="new-game">
     <div class="row">
           <div class="col-xs-4 box" id='0'> </div>
@@ -84,16 +137,19 @@
           <div class="col-xs-4 box" id='8'> </div>
         </div>
     </div>
+    <div>
+    <form id="reset">
+      <fieldset>
+        <legend>Reset</legend>
+        <input type="submit" value="Reset the board">
+      </fieldset>
+    </form>
+  </div>
     <!-- <form id="sign-out">
       <fieldset>
         <legend>Sign Out</legend>
         <input type="submit" name="submit" value="Sign Out!">
       </fieldset>
     </form> -->
-    <form id="reset">
-      <fieldset>
-        <input type="reset" name="reset">
-      </fieldset>
-    </form>
   </body>
 </html>
