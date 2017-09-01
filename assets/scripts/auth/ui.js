@@ -21,7 +21,18 @@ const signOutSuccess = function () {
   store.user = null
   console.log(store.user)
 }
-
+const createGameSuccess = function (data) {
+  console.log(data)
+  console.log('Game created!')
+  $('#message').text('You created a new game!')
+  store.game = data.game
+}
+const updateGameSuccess = function (data) {
+  console.log(data)
+  console.log('Game created!')
+  $('#message').text('You updated the game!')
+  store.game = data.game.id
+}
 // //////////////////
 
 const signUpFailure = function (error) {
@@ -43,7 +54,16 @@ const signOutFailure = function (error) {
   console.log('FAIL!')
   $('#message').text('You have not signed out!')
 }
-
+const createGameFail = function (data) {
+  console.log(data)
+  console.log('FAIL!')
+  $('#message').text('Failure to create new game!')
+}
+const updateGameFail = function (data) {
+  console.log(data)
+  console.log('FAIL!')
+  $('#message').text('Failure to update game!')
+}
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -52,5 +72,9 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  createGameSuccess,
+  createGameFail,
+  updateGameSuccess,
+  updateGameFail
 }

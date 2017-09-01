@@ -41,6 +41,22 @@ const onSignOut = function (event) {
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
 }
+const onCreateGame = function (event) {
+  const data = getFormFields(this)
+  console.log(data)
+  event.preventDefault()
+  api.createGame(data)
+    .then(ui.createGameSuccess)
+    .catch(ui.createGameFail)
+}
+const onUpdateGame = function (event) {
+  const data = getFormFields(this)
+  console.log(data)
+  event.preventDefault()
+  api.updateGame(data)
+    .then(ui.updateGameSuccess)
+    .catch(ui.updateGameFail)
+}
 
 const addHandlers = function () {
   $('.box').on('click', gameLogic.fill)
@@ -49,6 +65,8 @@ const addHandlers = function () {
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').on('submit', onSignOut)
+  $('#create-game').on('submit', onCreateGame)
+  $('.box').on('click', onUpdateGame)
 }
 
 module.exports = {
