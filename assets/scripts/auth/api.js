@@ -26,22 +26,25 @@ const createGame = function (data) {
     }
   })
 }
-const updateGame = function (data, data2) {
+
+const updateGame = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/games/' + store.game.id,
     method: 'PATCH',
-    data: {
-      'game': {
-        'cell': {
-          'index': data,
-          'value': data2
-        },
-        'over': store.game.over
-      }
-    },
+    contentType: 'application/json',
+    // data: {
+    //   'game': {
+    //     'cell': {
+    //       'index': index,
+    //       'value': value
+    //     },
+    //     'over': store.game.over
+    //   }
+    // },
     headers: {
       Authorization: 'Token token=' + store.user.token
-    }
+    },
+    data
   })
 }
 const changePassword = function (data) {

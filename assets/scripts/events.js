@@ -49,8 +49,16 @@ const onCreateGame = function (event) {
     .then(ui.createGameSuccess)
     .catch(ui.createGameFail)
 }
-const onUpdateGame = function (event) {
-  const data = getFormFields(this)
+const onUpdateGame = function (index, value, over) {
+  const data = {
+    game: {
+      cell: {
+        index: gameLogic.board,
+        value: gameLogic.turn
+      },
+      over: over
+    }
+  }
   console.log(data)
   event.preventDefault()
   api.updateGame(data)

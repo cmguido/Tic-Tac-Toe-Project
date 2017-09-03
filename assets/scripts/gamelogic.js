@@ -1,12 +1,14 @@
 const store = require('./store')
+const events = require('./events')
 
 let turn = 'X'
 // let board = ['', '', '', '', '', '', '', '', '']
-let board = store.game.cells
+let board = events.onUpdateGame
 
 const fill = function () {
   console.log(board)
   const id = $(this).attr('id')
+  // const index = id
   if (board[id] !== '') {
     console.log('kindly choose another square')
   } else if (board[id] === '' && turn === 'X') {

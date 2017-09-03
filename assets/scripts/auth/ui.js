@@ -1,4 +1,5 @@
 const store = require('../store')
+// const api = require('./api')
 
 const signUpSuccess = function (data) {
   console.log(data)
