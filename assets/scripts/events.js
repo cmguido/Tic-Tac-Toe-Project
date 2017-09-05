@@ -14,7 +14,7 @@ const store = require('./store')
 
 const onSignUp = function (event) {
   const data = getFormFields(this)
-  console.log(data)
+  // console.log(data)
   event.preventDefault()
   api.signUp(data)
     .then(ui.signUpSuccess)
@@ -22,7 +22,7 @@ const onSignUp = function (event) {
 }
 const onSignIn = function (event) {
   const data = getFormFields(this)
-  console.log(data)
+  // console.log(data)
   event.preventDefault()
   api.signIn(data)
     .then(ui.signInSuccess)
@@ -30,7 +30,7 @@ const onSignIn = function (event) {
 }
 const onChangePassword = function (event) {
   const data = getFormFields(this)
-  console.log(data)
+  // console.log(data)
   event.preventDefault()
   api.changePassword(data)
     .then(ui.changePasswordSuccess)
@@ -45,7 +45,7 @@ const onSignOut = function (event) {
 }
 const onCreateGame = function (event) {
   const data = getFormFields(this)
-  console.log(data)
+  // console.log(data)
   event.preventDefault()
   api.createGame(data)
     .then(ui.createGameSuccess)
@@ -64,13 +64,13 @@ const onUpdateGame = function (event) {
       'over': store.game.over
     }
   }
-  console.log(data)
+  // console.log(data)
   api.updateGame(data)
     .then(ui.updateGameSuccess)
     .catch(ui.updateGameFail)
 }
 const onGameHistory = function (event) {
-  console.log(event)
+  // console.log(event)
   event.preventDefault()
   api.gameHistory()
     .then(ui.gameHistorySuccess)

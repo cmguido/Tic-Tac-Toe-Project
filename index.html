@@ -13,8 +13,9 @@
     </head>
     <body class="container-fluid">
       <h1>TIC TAC TOE</h1>
+      <p class='message' id='message'></p>
       <aside>
-      <p id='message'></p>
+    <nav>
   <form id="sign-up">
     <fieldset>
       <legend>Sign up!</legend>
@@ -33,6 +34,7 @@
       <input type="submit" name="submit" value="Sign in!">
     </fieldset>
   </form>
+</nav>
     <br>
     <div class="btn-group">
       <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -72,6 +74,36 @@
         <div class="dropdown-divider"></div>
       </div>
     </div>
+    <div>
+    <form id="reset">
+      <fieldset>
+        <legend>Reset</legend>
+        <input type="submit" value="Reset the board">
+      </fieldset>
+    </form>
+  </div>
+  </aside>
+   <h3 id='turn-message'> X's Turn </h3>
+        <h2 id='winner'></h2>
+     <div class="grid" id="new-game">
+       <div class="row">
+             <div class="col-xs-4 box" id='0'> </div>
+             <div class="col-xs-4 box" id='1'> </div>
+             <div class="col-xs-4 box" id='2'> </div>
+         </div>
+         <div class="row">
+             <div class="col-xs-4 box" id='3'> </div>
+             <div class="col-xs-4 box" id='4'> </div>
+             <div class="col-xs-4 box" id='5'> </div>
+           </div>
+           <div class="row">
+             <div class="col-xs-4 box" id='6'> </div>
+             <div class="col-xs-4 box" id='7'> </div>
+             <div class="col-xs-4 box" id='8'> </div>
+           </div>
+       </div>
+     </body>
+   </html>
   <!-- <div class="btn-group">
     <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       menu
@@ -129,39 +161,3 @@
         </div>
       </div>
     </div> -->
-    <div>
-    <form id="reset">
-      <fieldset>
-        <legend>Reset</legend>
-        <input type="submit" value="Reset the board">
-      </fieldset>
-    </form>
-  </div>
-  </aside>
-   <h3 id='turn-message'> X's Turn </h3>
-        <h2 id='winner'></h2>
-  <div class="grid" id="new-game">
-    <div class="row">
-          <div class="col-xs-4 box" id='0'> </div>
-          <div class="col-xs-4 box" id='1'> </div>
-          <div class="col-xs-4 box" id='2'> </div>
-      </div>
-      <div class="row">
-          <div class="col-xs-4 box" id='3'> </div>
-          <div class="col-xs-4 box" id='4'> </div>
-          <div class="col-xs-4 box" id='5'> </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-4 box" id='6'> </div>
-          <div class="col-xs-4 box" id='7'> </div>
-          <div class="col-xs-4 box" id='8'> </div>
-        </div>
-    </div>
-    <!-- <form id="sign-out">
-      <fieldset>
-        <legend>Sign Out</legend>
-        <input type="submit" name="submit" value="Sign Out!">
-      </fieldset>
-    </form> -->
-  </body>
-</html>
