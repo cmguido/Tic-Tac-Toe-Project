@@ -38,6 +38,7 @@ const onChangePassword = function (event) {
 }
 const onSignOut = function (event) {
   event.preventDefault()
+  gameLogic.signOutReset()
   api.signOut()
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
@@ -58,7 +59,7 @@ const onUpdateGame = function (event) {
     'game': {
       'cell': {
         'index': this.id,
-        'value': this.turn
+        'value': $(this).html()
       },
       'over': store.game.over
     }

@@ -18,10 +18,10 @@ const changePasswordSuccess = function (data) {
 }
 const signOutSuccess = function () {
   console.log('You`re signed out!')
-  $('#message').text('You`ve successfully signed out!')
   store.user = null
   console.log(store.user)
   $('.grid').hide()
+  $('#message').text('You`ve successfully signed out!')
 }
 const createGameSuccess = function (data) {
   console.log(data)
@@ -33,13 +33,13 @@ const updateGameSuccess = function (data) {
   console.log(data)
   console.log('Game updated!')
   $('#message').text('You updated the game!')
-  store.game.id = data.game.id
+  // store.game.id = data.game.id
 }
 const gameHistorySuccess = function (data) {
   store.games = data.games
   console.log(store.games)
   console.log('Game history')
-  $('#message').text(JSON.stringify(store.games))
+  $('#message').text('You`ve played ' + store.games.length + ' games')
 }
 // //////////////////
 

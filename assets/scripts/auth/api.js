@@ -28,7 +28,7 @@ const createGame = function (data) {
 }
 const updateGame = function (data) {
   return $.ajax({
-    url: config.apiOrigins.development + '/games/' + store.game.id,
+    url: config.apiOrigin + '/games/' + store.game.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -39,7 +39,7 @@ const updateGame = function (data) {
 
 const gameHistory = function () {
   return $.ajax({
-    url: config.apiOrigins.development + '/games',
+    url: config.apiOrigin + '/games',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token

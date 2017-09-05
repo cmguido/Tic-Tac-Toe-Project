@@ -11,26 +11,26 @@ const store = require('./store')
 //   }
 // }
 // let over = false
-let turn = 'X'
+store.turn = 'X'
 let board = ['', '', '', '', '', '', '', '', '']
-// let board = store.game.data
 
 const fill = function () {
+  board = store.game.cells
   console.log(board)
   const id = $(this).attr('id')
   if (board[id] !== '') {
     console.log('kindly choose another square')
-  } else if (board[id] === '' && turn === 'X') {
+  } else if (board[id] === '' && store.turn === 'X') {
     board[id] = 'X'
     $('#' + id).text('X')
     checkForWinner()
-    turn = 'O'
+    store.turn = 'O'
     $('#turn-message').text('O`s Turn')
   } else {
     board[id] = 'O'
     $('#' + id).text('O')
     checkForWinner()
-    turn = 'X'
+    store.turn = 'X'
     $('#turn-message').text('X`s Turn')
   }
 }
@@ -48,7 +48,18 @@ const reset = function () {
   event.preventDefault()
   console.log('game reset!')
   $('.box').text('')
-  turn = 'X'
+  store.turn = 'X'
+  board = ['', '', '', '', '', '', '', '', '']
+  $('.box').on('click', function () {
+    $('.box').on('click', fill)
+  })
+  $('#turn-message').text('X`s Turn')
+  $('#winner').text('')
+}
+const signOutReset = function () {
+  console.log('game reset!')
+  $('.box').text('')
+  store.turn = 'X'
   board = ['', '', '', '', '', '', '', '', '']
   $('.box').on('click', function () {
     $('.box').on('click', fill)
@@ -156,5 +167,6 @@ module.exports = {
   board,
   fill,
   checkForWinner,
-  reset
+  reset,
+  signOutReset
 }
