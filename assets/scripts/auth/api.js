@@ -26,24 +26,40 @@ const createGame = function (data) {
     }
   })
 }
-const updateGame = function (data, data2) {
+const updateGame = function (data) {
   return $.ajax({
-    url: config.apiOrigin + '/games/' + store.game.id,
+    url: config.apiOrigins.development + '/games/' + store.game.id,
     method: 'PATCH',
-    data: {
-      'game': {
-        'cell': {
-          'index': data,
-          'value': data2
-        },
-        'over': store.game.over
-      }
+    headers: {
+      Authorization: 'Token token=' + store.user.token
     },
+    data
+  })
+}
+
+const gameHistory = function () {
+  return $.ajax({
+    url: config.apiOrigins.development + '/games',
+    method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
   })
 }
+//     data: {
+//       'game': {
+//         'cell': {
+//           'index': 'id',
+//           'value': 'value'
+//         },
+//         'over': true || false
+//       }
+//     },
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     }
+//   })
+// }
 const changePassword = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/change-password/' + store.user.id,
@@ -69,5 +85,6 @@ module.exports = {
   changePassword,
   signOut,
   createGame,
-  updateGame
+  updateGame,
+  gameHistory
 }

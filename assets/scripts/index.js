@@ -8,6 +8,7 @@ const scriptEvents = require('./events')
 $(() => {
   setAPIOrigin(location, config)
 })
+
 $(() => {
   scriptEvents.addHandlers()
 })

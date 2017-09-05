@@ -1,8 +1,19 @@
 const store = require('./store')
-
+// const events = require('./events')
+//
+// let data = {
+//   game: {
+//     cell: {
+//       index: store.game.data.id,
+//       value: store.game.data.turn
+//     },
+//     over: store.game.over
+//   }
+// }
+// let over = false
 let turn = 'X'
-// let board = ['', '', '', '', '', '', '', '', '']
-let board = store.game.cells
+let board = ['', '', '', '', '', '', '', '', '']
+// let board = store.game.data
 
 const fill = function () {
   console.log(board)
