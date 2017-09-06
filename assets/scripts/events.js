@@ -78,6 +78,8 @@ const onGameHistory = function (event) {
 }
 const addHandlers = function () {
   $('.grid').hide()
+  // $('.btn-group').hide()
+  // $('#reset').hide()
   $('.box').on('click', gameLogic.fill)
   $('#reset').on('click', gameLogic.reset)
   $('#sign-up').on('submit', onSignUp)

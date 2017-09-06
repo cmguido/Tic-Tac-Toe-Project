@@ -4,13 +4,19 @@ const signUpSuccess = function (data) {
   // console.log(data)
   // console.log('Successfully signed up!')
   $('#message').text('Successfully signed up')
+  $('#sign-up').trigger('reset')
 }
 const signInSuccess = function (data) {
   // console.log(data)
   // console.log('Successfully signed in!')
   $('#message').text('You`re signed in!')
+  $('#sign-in').trigger('reset')
   store.user = data.user
   $('.grid').show()
+  // $('.btn-group').show()
+  // $('#reset').show()
+  // $('#sign-up').hide()
+  // $('#sign-in').hide()
 }
 const changePasswordSuccess = function (data) {
   // console.log('Great success!')
