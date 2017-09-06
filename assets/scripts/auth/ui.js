@@ -13,10 +13,11 @@ const signInSuccess = function (data) {
   $('#sign-in').trigger('reset')
   store.user = data.user
   $('.grid').show()
-  // $('.btn-group').show()
-  // $('#reset').show()
-  // $('#sign-up').hide()
-  // $('#sign-in').hide()
+  $('.btn-group').show()
+  $('#reset').show()
+  $('#turn-message').show()
+  $('#sign-up').hide()
+  $('#sign-in').hide()
 }
 const changePasswordSuccess = function (data) {
   // console.log('Great success!')
@@ -27,6 +28,8 @@ const signOutSuccess = function () {
   store.user = null
   // console.log(store.user)
   $('.grid').hide()
+  $('.btn-group').hide()
+  $('#reset').hide()
   $('#message').text('You`ve successfully signed out!')
 }
 const createGameSuccess = function (data) {
