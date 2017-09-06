@@ -1,15 +1,17 @@
 const store = require('../store')
+const gameLogic = require('../gamelogic')
 
 const signUpSuccess = function (data) {
   // console.log(data)
   // console.log('Successfully signed up!')
   $('#message').text('Successfully signed up')
   $('#sign-up').trigger('reset')
+  $('#sign-up').hide()
 }
 const signInSuccess = function (data) {
   // console.log(data)
   // console.log('Successfully signed in!')
-  $('#message').text('You`re signed in!')
+  $('#message').text('You`re signed in! Click `New Game` in menu to play!')
   $('#sign-in').trigger('reset')
   store.user = data.user
   $('.grid').show()
@@ -21,6 +23,7 @@ const signInSuccess = function (data) {
 }
 const changePasswordSuccess = function (data) {
   // console.log('Great success!')
+  $('#change-password').trigger('reset')
   $('#message').text('You`ve successfully changed your password!')
 }
 const signOutSuccess = function () {
@@ -31,12 +34,15 @@ const signOutSuccess = function () {
   $('.btn-group').hide()
   $('#reset').hide()
   $('#message').text('You`ve successfully signed out!')
+  $('#sign-up').show()
+  $('#sign-in').show()
 }
 const createGameSuccess = function (data) {
   // console.log(data)
   // console.log('Game created!')
   $('#message').text('You created a new game!')
   store.game = data.game
+  gameLogic.reset()
 }
 const updateGameSuccess = function (data) {
   // console.log(data)
