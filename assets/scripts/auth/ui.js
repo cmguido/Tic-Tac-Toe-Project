@@ -1,5 +1,5 @@
 const store = require('../store')
-const gameLogic = require('../gamelogic')
+// const gameLogic = require('../gamelogic')
 
 const signUpSuccess = function (data) {
   // console.log(data)
@@ -16,7 +16,7 @@ const signInSuccess = function (data) {
   store.user = data.user
   $('.grid').show()
   $('.btn-group').show()
-  $('#reset').show()
+  $('#create-game').show()
   $('#turn-message').show()
   $('#sign-up').hide()
   $('#sign-in').hide()
@@ -32,7 +32,7 @@ const signOutSuccess = function () {
   // console.log(store.user)
   $('.grid').hide()
   $('.btn-group').hide()
-  $('#reset').hide()
+  $('#create-game').hide()
   $('#message').text('You`ve successfully signed out!')
   $('#sign-up').show()
   $('#sign-in').show()
@@ -42,7 +42,6 @@ const createGameSuccess = function (data) {
   // console.log('Game created!')
   $('#message').text('You created a new game!')
   store.game = data.game
-  gameLogic.reset()
 }
 const updateGameSuccess = function (data) {
   // console.log(data)

@@ -46,6 +46,7 @@ const onSignOut = function (event) {
 const onCreateGame = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
+  gameLogic.reset()
   // console.log(data)
   api.createGame(data)
     .then(ui.createGameSuccess)
@@ -54,6 +55,10 @@ const onCreateGame = function (event) {
 
 const onUpdateGame = function (event) {
   event.preventDefault()
+  if (store.game.over === true) {
+    return
+  } else {
+  gameLogic.fill(event)
   // const data = getFormFields(this)
   const data = {
     'game': {
@@ -68,6 +73,7 @@ const onUpdateGame = function (event) {
   api.updateGame(data)
     .then(ui.updateGameSuccess)
     .catch(ui.updateGameFail)
+  }
 }
 const onGameHistory = function (event) {
   // console.log(event)
@@ -80,8 +86,8 @@ const addHandlers = function () {
   $('.grid').hide()
   $('.btn-group').hide()
   $('#turn-message').hide()
-  $('#reset').hide()
-  $('.box').on('click', gameLogic.fill)
+  $('#create-game').hide()
+  // $('.box').on('click', gameLogic.fill)
   $('#reset').on('click', gameLogic.reset)
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)

@@ -10,16 +10,17 @@ const store = require('./store')
 //     over: store.game.over
 //   }
 // }
-// let over = false
 store.turn = 'X'
 let board = ['', '', '', '', '', '', '', '', '']
 
-const fill = function () {
+const fill = function (event) {
   board = store.game.cells
-  // console.log(board)
-  const id = $(this).attr('id')
+  const id = $(event.target).attr('id')
+  console.log(event)
+  // if (store.game.over === true) {
+  //   return
   if (board[id] !== '') {
-    $('#turn-message').text('kindly choose another square')
+    $('#turn-message').text('Choose another square!')
   } else if (board[id] === '' && store.turn === 'X') {
     board[id] = 'X'
     $('#' + id).text('X')
@@ -33,12 +34,12 @@ const fill = function () {
     store.turn = 'X'
     $('#turn-message').text('X`s Turn')
   }
+  console.log(board)
 }
 const checkDraw = function () {
   if (board[0] !== '' && board[1] !== '' && board[2] !== '' &&
       board[3] !== '' && board[4] !== '' && board[5] !== '' &&
       board[6] !== '' && board[7] !== '' && board[8] !== '') {
-    $('.box').off()
     $('#winner').text('DRAW! Reset board, then click `New Game` to play again!')
     store.game.over = true
   }
@@ -50,11 +51,12 @@ const reset = function () {
   $('.box').text('')
   store.turn = 'X'
   board = ['', '', '', '', '', '', '', '', '']
-  $('.box').on('click', function () {
-    $('.box').on('click', fill)
-  })
-  $('#turn-message').text('X`s Turn')
-  $('#message').text('Board reset! Click `New Game` in menu to play again!')
+  // board = store.game.cells
+  // $('.box').on('click', function () {
+  //   $('.box').on('click', fill)
+  // })
+  // $('#turn-message').text('X`s Turn')
+  $('#message').text('Click `New Game` in menu to play again!')
   $('#winner').text('')
 }
 const signOutReset = function () {
@@ -71,82 +73,66 @@ const signOutReset = function () {
 const checkForWinner = function () {
   if (board[0] === 'X' && board[1] === 'X' && board[2] === 'X') {
     // console.log('WINNER WINNER CHICKEN DINNER!')
-    $('.box').off()
     $('#winner').text('X WINS! Reset board, then click `New Game` to play again!')
     store.game.over = true
   } else if (board[3] === 'X' && board[4] === 'X' && board[5] === 'X') {
     // console.log('WINNER WINNER CHICKEN DINNER!')
-    $('.box').off()
     $('#winner').text('X WINS! Reset board, then click `New Game` to play again!')
     store.game.over = true
   } else if (board[6] === 'X' && board[7] === 'X' && board[8] === 'X') {
     // console.log('WINNER WINNER CHICKEN DINNER!')
-    $('.box').off()
     $('#winner').text('X WINS! Reset board, then click `New Game` to play again!')
     store.game.over = true
   } else if (board[0] === 'X' && board[3] === 'X' && board[6] === 'X') {
     // console.log('WINNER WINNER CHICKEN DINNER!')
-    $('.box').off()
     $('#winner').text('X WINS! Reset board, then click `New Game` to play again!')
     store.game.over = true
   } else if (board[1] === 'X' && board[4] === 'X' && board[7] === 'X') {
     // console.log('WINNER WINNER CHICKEN DINNER!')
-    $('.box').off()
     $('#winner').text('X WINS! Reset board, then click `New Game` to play again!')
     store.game.over = true
   } else if (board[2] === 'X' && board[5] === 'X' && board[8] === 'X') {
     // console.log('WINNER WINNER CHICKEN DINNER!')
-    $('.box').off()
     $('#winner').text('X WINS! Reset board, then click `New Game` to play again!')
     store.game.over = true
   } else if (board[0] === 'X' && board[4] === 'X' && board[8] === 'X') {
     // console.log('WINNER WINNER CHICKEN DINNER!')
-    $('.box').off()
     $('#winner').text('X WINS! Reset board, then click `New Game` to play again!')
     store.game.over = true
   } else if (board[2] === 'X' && board[4] === 'X' && board[6] === 'X') {
     // console.log('WINNER WINNER CHICKEN DINNER!')
-    $('.box').off()
     $('#winner').text('X WINS! Reset board, then click `New Game` to play again!')
     store.game.over = true
   } else if (board[0] === 'O' && board[1] === 'O' && board[2] === 'O') {
     // console.log('WINNER WINNER CHICKEN DINNER!')
-    $('.box').off()
     $('#winner').text('O WINS! Reset board, then click `New Game` to play again!')
     store.game.over = true
   } else if (board[3] === 'O' && board[4] === 'O' && board[5] === 'O') {
     // console.log('WINNER WINNER CHICKEN DINNER!')
-    $('.box').off()
     $('#winner').text('O WINS! Reset board, then click `New Game` to play again!')
     store.game.over = true
   } else if (board[6] === 'O' && board[7] === 'O' && board[8] === 'O') {
     // console.log('WINNER WINNER CHICKEN DINNER!')
-    $('.box').off()
     $('#winner').text('O WINS! Reset board, then click `New Game` to play again!')
     store.game.over = true
   } else if (board[0] === 'O' && board[3] === 'O' && board[6] === 'O') {
     // console.log('WINNER WINNER CHICKEN DINNER!')
-    $('.box').off()
     $('#winner').text('O WINS! Reset board, then click `New Game` to play again!')
     store.game.over = true
   } else if (board[1] === 'O' && board[4] === 'O' && board[7] === 'O') {
     // console.log('WINNER WINNER CHICKEN DINNER!')
-    $('.box').off()
     $('#winner').text('O WINS! Reset board, then click `New Game` to play again!')
     store.game.over = true
   } else if (board[2] === 'O' && board[5] === 'O' && board[8] === 'O') {
     // console.log('WINNER WINNER CHICKEN DINNER!')
-    $('.box').off()
     $('#winner').text('O WINS! Reset board, then click `New Game` to play again!')
     store.game.over = true
   } else if (board[0] === 'O' && board[4] === 'O' && board[8] === 'O') {
     // console.log('WINNER WINNER CHICKEN DINNER!')
-    $('.box').off()
     $('#winner').text('O WINS! Reset board, then click `New Game` to play again!')
     store.game.over = true
   } else if (board[2] === 'O' && board[4] === 'O' && board[6] === 'O') {
     // console.log('WINNER WINNER CHICKEN DINNER!')
-    $('.box').off()
     $('#winner').text('O WINS! Reset board, then click `New Game` to play again!')
     store.game.over = true
   } else {
