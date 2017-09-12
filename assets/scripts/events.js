@@ -58,21 +58,21 @@ const onUpdateGame = function (event) {
   if (store.game.over === true) {
     return
   } else {
-  gameLogic.fill(event)
-  // const data = getFormFields(this)
-  const data = {
-    'game': {
-      'cell': {
-        'index': this.id,
-        'value': $(this).html()
-      },
-      'over': store.game.over
+    gameLogic.fill(event)
+    // const data = getFormFields(this)
+    const data = {
+      'game': {
+        'cell': {
+          'index': this.id,
+          'value': $(this).html()
+        },
+        'over': store.game.over
+      }
     }
-  }
-  // console.log(data)
-  api.updateGame(data)
-    .then(ui.updateGameSuccess)
-    .catch(ui.updateGameFail)
+    // console.log(data)
+    api.updateGame(data)
+      .then(ui.updateGameSuccess)
+      .catch(ui.updateGameFail)
   }
 }
 const onGameHistory = function (event) {

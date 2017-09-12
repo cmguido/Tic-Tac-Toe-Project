@@ -11,7 +11,7 @@ const signUpSuccess = function (data) {
 const signInSuccess = function (data) {
   // console.log(data)
   // console.log('Successfully signed in!')
-  $('#message').text('You`re signed in! Click `New Game` in menu to play!')
+  $('#message').text('You`re signed in! Click `New Game` to play!')
   $('#sign-in').trigger('reset')
   store.user = data.user
   $('.grid').show()
@@ -33,6 +33,7 @@ const signOutSuccess = function () {
   $('.grid').hide()
   $('.btn-group').hide()
   $('#create-game').hide()
+  $('#turn-message').hide()
   $('#message').text('You`ve successfully signed out!')
   $('#sign-up').show()
   $('#sign-in').show()
