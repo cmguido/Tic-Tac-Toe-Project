@@ -13,12 +13,21 @@ const store = require('./store')
 // })
 
 const onSignUp = function (event) {
+  event.preventDefault()
   const data = getFormFields(this)
   // console.log(data)
-  event.preventDefault()
-  api.signUp(data)
-    .then(ui.signUpSuccess)
-    .catch(ui.signUpFailure)
+  const user = data.credentials
+  if (user.email.length !== 0) {
+    if (user.password === user.password_confirmation) {
+      api.signUp(data)
+        .then(ui.signUpSuccess)
+        .catch(ui.signUpFailure)
+    } else {
+      $('#message').text('Error on sign up, try a new password!')
+    }
+  } else {
+    $('#message').text('Error on sign up, try a new email!')
+  }
 }
 const onSignIn = function (event) {
   const data = getFormFields(this)
