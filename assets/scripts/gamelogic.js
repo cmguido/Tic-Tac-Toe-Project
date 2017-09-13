@@ -18,7 +18,6 @@ const fill = function (event) {
   const id = $(event.target).attr('id')
   console.log(event)
   // if (store.game.over === true) {
-  //   return
   if (board[id] !== '') {
     $('#turn-message').text('Choose another square!')
   } else if (board[id] === '' && store.turn === 'X') {
@@ -61,17 +60,17 @@ const reset = function () {
   $('#message').text('Click `New Game` to play again!')
   $('#winner').text('')
 }
-const signOutReset = function () {
-  // console.log('game reset!')
-  $('.box').text('')
-  store.turn = 'X'
-  board = ['', '', '', '', '', '', '', '', '']
-  $('.box').on('click', function () {
-    $('.box').on('click', fill)
-  })
-  $('#turn-message').text('X`s Turn')
-  $('#winner').text('')
-}
+// const signOutReset = function () {
+//   // console.log('game reset!')
+//   $('.box').text('')
+//   store.turn = 'X'
+//   board = ['', '', '', '', '', '', '', '', '']
+//   $('.box').on('click', function () {
+//     $('.box').on('click', fill)
+//   })
+//   $('#turn-message').text('X`s Turn')
+//   $('#winner').text('')
+// }
 const checkForWinner = function () {
   if (board[0] === 'X' && board[1] === 'X' && board[2] === 'X') {
     // console.log('WINNER WINNER CHICKEN DINNER!')
@@ -172,6 +171,5 @@ module.exports = {
   board,
   fill,
   checkForWinner,
-  reset,
-  signOutReset
+  reset
 }

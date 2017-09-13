@@ -29,6 +29,7 @@ const changePasswordSuccess = function (data) {
 const signOutSuccess = function () {
   // console.log('You`re signed out!')
   store.user = null
+  store.game = null
   // console.log(store.user)
   $('.grid').hide()
   $('.btn-group').hide()

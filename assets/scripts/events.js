@@ -38,7 +38,7 @@ const onChangePassword = function (event) {
 }
 const onSignOut = function (event) {
   event.preventDefault()
-  gameLogic.signOutReset()
+  gameLogic.reset()
   api.signOut()
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
