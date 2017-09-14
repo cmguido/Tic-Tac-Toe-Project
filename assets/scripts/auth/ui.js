@@ -61,7 +61,7 @@ const gameHistorySuccess = function (data) {
 
 const signUpFailure = function (data) {
   // console.error(error)
-  $('#message').text('Email taken, choose a new one!')
+  $('#message').text('Issue on sign-up! Try again!')
 }
 const signInFailure = function (data) {
   // console.log(data)
