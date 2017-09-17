@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>TTT</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body class="container-fluid">
+      <h1>TIC TAC TOE</h1>
+      <p class='message' id='message'></p>
+      <aside>
+    <nav>
+  <form id="sign-up">
+    <fieldset>
+      <legend>Sign up!</legend>
+      <input type="text" name="credentials[email]" placeholder="Enter Email">
+      <input type="password" name="credentials[password]" placeholder="Enter Password">
+      <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+      <input type="submit" name="submit" value="Sign up!">
+    </fieldset>
+    <h4>OR</h4>
+  </form>
+  <form id="sign-in">
+    <fieldset>
+      <legend>Sign In!</legend>
+      <input type="text" name="credentials[email]" placeholder="Enter Email">
+      <input type="password" name="credentials[password]" placeholder="Enter Password">
+      <input type="submit" name="submit" value="Sign in!">
+    </fieldset>
+  </form>
+</nav>
+    <br>
+    <div class="btn-group">
+      <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        menu
+      </button>
+      <div class="dropdown-menu dropdown-menu-right">
+        <!-- <form id="create-game"> -->
+          <!-- <fieldset>
+            <legend>New Game</legend>
+            <input type="submit" name="submit" value="New Game">
+          </fieldset>
+        </form> -->
+        <div class="dropdown-divider"></div>
+        <form id="game-history">
+          <fieldset>
+            <legend>Game History</legend>
+            <input type="submit" name="submit" value="Get Game History">
+          </fieldset>
+        </form>
+        <div class="dropdown-divider"></div>
+        <form id="change-password">
+          <fieldset>
+            <legend>Change Password</legend>
+            <input type="password" name="passwords[old]" placeholder="Enter Old Password">
+            <input type="password" name="passwords[new]" placeholder="Enter New Password">
+            <input type="submit" name="submit" value="Change Password!">
+          </fieldset>
+        </form>
+          <br>
+        <div class="dropdown-divider"></div>
+        <form id="sign-out">
+          <fieldset>
+            <legend>Sign Out</legend>
+            <input type="submit" name="submit" value="Sign Out!">
+          </fieldset>
+        </form>
+        <div class="dropdown-divider"></div>
+      </div>
+    </div>
+    <div>
+    <form id="create-game">
+      <fieldset>
+        <legend>New Game!</legend>
+        <input type="submit" value="New Game">
+      </fieldset>
+    </form>
+  </div>
+  </aside>
+   <h3 id='turn-message'> X's Turn </h3>
+        <h2 id='winner'></h2>
+     <div class="grid" id="new-game">
+       <div class="row">
+             <div class="col-xs-4 box" id='0'> </div>
+             <div class="col-xs-4 box" id='1'> </div>
+             <div class="col-xs-4 box" id='2'> </div>
+         </div>
+         <div class="row">
+             <div class="col-xs-4 box" id='3'> </div>
+             <div class="col-xs-4 box" id='4'> </div>
+             <div class="col-xs-4 box" id='5'> </div>
+           </div>
+           <div class="row">
+             <div class="col-xs-4 box" id='6'> </div>
+             <div class="col-xs-4 box" id='7'> </div>
+             <div class="col-xs-4 box" id='8'> </div>
+           </div>
+       </div>
+     </body>
+   </html>
+  <!-- <div class="btn-group">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      menu
+    </button>
+    <div class="dropdown-menu dropdown-menu-right">
+      <button class="dropdown-item" type="button">Game History</button>
+      <div class="dropdown-divider"></div>
+      <button class="dropdown-item" type="button">Change Password</button>
+      <div class="dropdown-divider"></div>
+      <button class="dropdown-item" type="button">Sign Out</button>
+      <div class="dropdown-divider"></div>
+    </div>
+  </div>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Sign Up!
+</button> -->
+  <!-- Modal -->
+  <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="sign-up">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="text" name="credentials[email]" placeholder="Enter Email">
+              <input type="text" name="credentials[password]" placeholder="Enter Password">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="text" name="credentials[password]" placeholder="Enter Password">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="text" name="credentials[password-confirmation]" placeholder="Confirm Password">
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="checkbox" class="form-check-input">
+                Check me out
+              </label>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div> -->
